@@ -1,4 +1,4 @@
-const sequelize = require('../config/db');
+const sequelize = require('../config/config');
 const Business = require('./business');
 
 // Synchronize models with the database
