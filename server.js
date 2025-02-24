@@ -1,18 +1,22 @@
-const express = require('express');
-require('dotenv').config();
-const bodyParser = require('body-parser');
-const businessRoutes = require('./routes/businessRoutes');
-const db = require('./config/config'); // Import the database connection
-const cors = require('cors')
+// server.js
+const express = require("express");
+require("dotenv").config();
+const cors = require("cors");
+const farmerRoutes = require("./routes/farmerRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(express.json());
 app.use(cors());
 
-app.use('/api/business', businessRoutes);
+// Routes
+app.use("/api", farmerRoutes);
+app.use("/api/auth", authRoutes);
 
-const PORT = 5000;
-
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
