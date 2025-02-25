@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Allow CORS for only http://localhost:3001
 app.use(cors({
-  origin: "https://dashboard.freshxpress.co.in/",
+  origin: ["https://dashboard.freshxpress.co.in", "https://freshxpress.co.in"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true // Allow cookies and auth headers
